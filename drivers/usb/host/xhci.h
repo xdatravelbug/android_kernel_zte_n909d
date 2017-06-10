@@ -1514,6 +1514,25 @@ struct xhci_hcd {
 	unsigned		sw_lpm_support:1;
 	/* support xHCI 1.0 spec USB2 hardware LPM */
 	unsigned		hw_lpm_support:1;
+
+#define XHCI_TRUST_TX_LENGTH	(1 << 10)
+#define XHCI_SPURIOUS_REBOOT	(1 << 13)
+	unsigned int		num_active_eps;
+	unsigned int		limit_active_eps;
+	/* There are two roothubs to keep track of bus suspend info for */
+	struct xhci_bus_state   bus_state[2];
+	/* Is each xHCI roothub port a USB 3.0, USB 2.0, or USB 1.1 port? */
+	u8			*port_array;
+	/* Array of pointers to USB 3.0 PORTSC registers */
+	__le32 __iomem		**usb3_ports;
+	unsigned int		num_usb3_ports;
+	/* Array of pointers to USB 2.0 PORTSC registers */
+	__le32 __iomem		**usb2_ports;
+	unsigned int		num_usb2_ports;
+	/* support xHCI 0.96 spec USB2 software LPM */
+	unsigned		sw_lpm_support:1;
+	/* support xHCI 1.0 spec USB2 hardware LPM */
+	unsigned		hw_lpm_support:1;
 };
 
 /* convert between an HCD pointer and the corresponding EHCI_HCD */
