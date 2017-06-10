@@ -14,7 +14,7 @@
 #include <linux/gpio.h>
 #include <asm/mach-types.h>
 #include <linux/i2c.h>
-#include <devices-msm7x2xa.h>
+#include "devices-msm7x2xa.h"
 #include <linux/regulator/consumer.h>
 
 #include <linux/taos_common.h>
