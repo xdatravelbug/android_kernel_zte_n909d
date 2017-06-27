@@ -5229,7 +5229,7 @@ static inline int l2cap_move_channel_confirm_rsp(struct l2cap_conn *conn,
 	struct l2cap_pinfo *pi;
 
 	u16 icid;
- 
+
 	icid = le16_to_cpu(rsp->icid);
 
 	BT_DBG("icid %d", (int) icid);
